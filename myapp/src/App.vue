@@ -78,12 +78,43 @@
     <p>70만원</p>
     <button @click="신고수[2]++">허위매물신고</button> <span>신고수 : {{신고수[2]}}</span>
 </div>
+
+
+<h2>Data 뽑아오기</h2>
+<div>
+  <!--
+      {{원룸들}}
+      위와같이 작성하면 긴 object가 다 출력된다.
+      {{원룸들[0].key값}}
+      위와같이 작성하면 원하는 key값의 데이터를 받아올 수 있다.
+
+      HTML 태그 안의 속성 데이터바인딩은 :어쩌구 이런식으로 한다.
+      HTML 태그 안의 내용 데이터바인딩은 {{어쩌구}} 이런식으로 한다.
+  -->
+  <img :src="원룸들[0].image" class="room-img">
+  <h4>{{원룸들[0].title}}</h4>
+  <p>{{원룸들[0].price}}원</p>
+  <p>50만원</p>
+</div>
+
 </template>
 
 <script>
+// import를 하게되면 꼭 변수를 가져다 써야한다. (안그러면 오류남)
+/*
+  import apple from './assets/data.js';
+  apple;
+*/
+
+/*
+  import {apple, apple2} from './assets/data.js';
+  apple; 
+  apple2;
+*/
 
 
-
+// data.js import
+import oneroom from './assets/data.js';
 
 
 
@@ -107,10 +138,12 @@ export default {
       price3 : 65,
       logo : '원룸샵',
       스타일 : 'color : blue',
+      // import export 문법
       products : ['역삼동원룸', '천호동원룸', '마포구원룸'],
       prices : [80, 50, 60],
       menu : ['Home', 'Shop', 'About'],
       신고수 : [0, 0, 0],
+      원룸들 : oneroom,
     }
   },
   // js에서 함수쓰는 이유 : 코드가 길고 복잡한 것을 함수안에 담아서 짧은 단어 하나로 축약시켜주는 것
