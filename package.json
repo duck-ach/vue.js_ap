@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/duck-ach/vue.js_ap/issues"
   },
-  "homepage": "https://github.com/duck-ach/vue.js_ap#readme"
+  "homepage": "https://github.com/duck-ach/vue.js_ap#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  }
 }
