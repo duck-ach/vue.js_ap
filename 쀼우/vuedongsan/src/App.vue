@@ -10,21 +10,28 @@
   <div v-for="(product, i) in products" :key="i">
       <h4>{{product}}</h4>
       <p>{{prices[i]}} 만원</p>
+      <!-- v-on:click="자바스크립트" -->
+      <button @click="신고수s[i] += 1">허위매물신고</button> <span>신고수 : {{신고수s[i]}}</span>
   </div>
 </template>
 
 <!--JS-->
 <script>
 
-
 export default {
   name: 'App',
   data() {
     return {
+      신고수s : [0, 0, 0],
       // object 자료형식 모든 데이터 넣을 수 있음. ex) 변수
       products : ['역삼동원룸', '천호동원룸', '마포구원룸'],
       menus : ['Home', 'Shop', 'About'],
       prices : [60, 70, 80],
+    }
+  },
+  methods : {
+    increase() {
+      // this.신고수 += 1
     }
   },
   components: {
