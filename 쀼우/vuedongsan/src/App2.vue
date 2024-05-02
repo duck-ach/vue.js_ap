@@ -8,30 +8,26 @@
   </div>
 
 
-  <div v-for="(product, i) in 원룸들" :key="i" class="section">
+  <div v-for="(product, i) in products" :key="i" class="section">
     <!-- v-if="조건식" -->
       <div class="black-bg" v-if="모달창열렸니[i] == true">
         <div class="white-bg">
-          <h4>{{원룸들[i].title}} 상세페이지임</h4>
-          <img :src="원룸들[i].image" class="room-img">
-          <p>{{원룸들[i].price}} 만원임</p>
-          <p>{{원룸들[i].content}}</p>
+          <h4>{{product}} 상세페이지임</h4>
+          <p>{{prices[i]}} 만원임</p>
           <button @click="모달창열렸니[i] = false">닫기</button>
         </div>
       </div>
 
-      <h4 @click="모달창열렸니[i] = true">{{원룸들[i].title}}</h4>
-      <img :src="원룸들[i].image" class="room-img">
-      <p>{{원룸들[i].price}} 만원</p>
+      <!-- <img :src=images[i] class="profile_img"> -->
+      <h4 @click="모달창열렸니[i] = true">{{product}}</h4>
+      <p>{{prices[i]}} 만원</p>
+      <!-- v-on:click="자바스크립트" -->
       <button @click="신고수s[i] += 1">허위매물신고</button> <span>신고수 : {{신고수s[i]}}</span>
   </div>
 </template>
 
 <!--JS-->
 <script>
-// import apple from 경로;
-// import {apple1, apple2} from "./assets/oneroom.js";
-import data from "./assets/oneroom";
 export default {
   name: 'App',
   data() {
@@ -39,8 +35,10 @@ export default {
       모달창열렸니 : [false, false, false],
       // images : ['./assets/dog.jpg', "http://localhost:8080/img/IMG_5536.4ad8e957.jpg", "	http://localhost:8080/img/IMG_6049.7849fcd9.jpg"],
       신고수s : [0, 0, 0],
+      // object 자료형식 모든 데이터 넣을 수 있음. ex) 변수
+      products : ['역삼동원룸', '천호동원룸', '마포구원룸'],
       menus : ['Home', 'Shop', 'About'],
-      원룸들 : data
+      prices : [60, 70, 80],
     }
   },
   methods : {
